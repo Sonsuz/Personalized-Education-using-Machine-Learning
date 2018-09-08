@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block title %}Profile{% endblock %}
+{% load static %}
+
+
+{% block head %}
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+  {% block styles %}
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}"/>
+  {% endblock %}
+{% endblock %}
+
+{% block body %}
+
+<div class="row">
+  <div id="w">
+    <div id="content" class="clearfix animated fadeIn">
+      <div class="row">
+        <div class="col-md-4">
+          <div id="userphoto">
+              <img src="{%  static 'profile.jpeg' %}" alt="profile" class="img-responsive"/>
+          </div>
+        </div>
+        <div class="col-md-8">
+            <table style="width:100%; font-size:18px;">
+              <tr><th>Username</th><td> {{ user }}</td></tr>
+              <tr><th>Name</th><td> {{ user.first_name }}  {{ user.last_name }}</td></tr>
+              <tr><th>E-mail</th><td> {{ user.email }} </td></tr>
+            </table>
+            <a href="{% url 'LearningApp:edit_profile' %}" style="float: right;">
+              <button class="btn btn-xs btn-info btn-circle" type="button"><i class="fas fa-pencil-alt"></i></button>
+            </a>
+        </div>
+      </div>
+      </div>
+    </div>
+
+</div>
+{% block scripts %}
+{% endblock %}
+
+{% endblock %}

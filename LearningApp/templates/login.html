@@ -1,0 +1,33 @@
+{% extends 'base_visitor.html' %}
+{% block title %}Log In{% endblock %}
+{% block login_active %}active{% endblock %}
+{% load static %}
+
+{% block styles %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/animate.css' %}"/>
+{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+      <div class="login-page animated fadeIn">
+        <div class="form">
+          <h3>Login</h3><br>
+          {% if error_message %}
+              <p><strong>{{ error_message }}</strong></p>
+          {% endif %}
+          <form class="login-form" role="form" action="{% url 'LearningApp:login_user'%}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="text" name="username" placeholder="username" id="id_username"/>
+            <input type="password" name="password" placeholder="password" id="id_password"/>
+            <button>login</button>
+            <p class="message">Click here to <a href="{% url 'LearningApp:register' %}">Sign Up</a></p>
+          </form>
+        </div>
+      </div>
+</div>
+
+{% block scripts %}
+{% endblock %}
+
+{% endblock %}

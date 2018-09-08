@@ -1,0 +1,42 @@
+{% extends 'base_visitor.html' %}
+{% block title %}Register{% endblock %}
+{% block register_active %}active{% endblock %}
+{% load static %}
+
+
+{% block styles %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/register.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/animate.css' %}"/>
+{% endblock %}
+
+
+{% block body %}
+<div class="container-fluid">
+      <div class="login-page animated fadeIn">
+        <div class="form">
+          <h3>Sign Up</h3><br>
+          {% if error_message %}
+              <p><strong>{{ error_message }}</strong></p>
+          {% endif %}
+          <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
+              {% csrf_token %}
+              {% for field in form %}
+                  <div class="form-group">
+                      <div class="row">
+                        <label class="control-label col-sm-6 col-md-4" >{{ field.label_tag }}</label>
+                        <div class="col-sm-6 col-md-6">{{ field }}</div>
+                      </div>
+                  </div>
+              {% endfor %}
+              <div class="form-group">
+                  <div class="col-sm-12 col-md-12">
+                      <button type="submit">Sign Up</button>
+                  </div>
+              </div>
+              <p class="message">If you're already a member <a href="{% url 'LearningApp:login_user' %}">Sign In</a></p>
+          </form>
+        </div>
+      </div>
+</div>
+
+{% endblock %}
