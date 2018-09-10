@@ -24,7 +24,7 @@ class UserProfileForm(forms.ModelForm):
 
     class Meta:
          model = UserProfile
-         fields = ['lan_ID','title', 'phone','image']
+         fields = ['student_id','user_type', 'phone','image']
 # Edit Profile ------------------------------------
 class EditProfileForm(UserChangeForm):
     class Meta:

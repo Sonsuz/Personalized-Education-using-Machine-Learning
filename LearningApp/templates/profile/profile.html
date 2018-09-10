@@ -7,13 +7,14 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
   {% block styles %}
-    <link rel="stylesheet" href="{% static 'css/profile.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/profile1.css' %}"/>
+    
   {% endblock %}
 {% endblock %}
 
 {% block body %}
 
-<div class="row">
+<div class="row my-5">
   <div id="w">
     <div id="content" class="clearfix animated fadeIn">
       <div class="row">
@@ -28,6 +29,7 @@
               <tr><th>Name</th><td> {{ user.first_name }}  {{ user.last_name }}</td></tr>
               <tr><th>E-mail</th><td> {{ user.email }} </td></tr>
             </table>
+            <br>
             <a href="{% url 'LearningApp:edit_profile' %}" style="float: right;">
               <button class="btn btn-xs btn-info btn-circle" type="button"><i class="fas fa-pencil-alt"></i></button>
             </a>

@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block title %}Courses{% endblock %}
+
+{% load static %}
+
+{% block styles %}
+
+  <link rel="stylesheet" href="{% static 'css/animate.css' %}"/>
+{% endblock %}
+
+{% block body %}
+<div class="container">
+
+  <div class="row my-5">
+    {% for course in courses %}
+    <div class="col-md-3 mx-5">
+      <a href="{% url 'LearningApp:course_detail' course.id %}">
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="{{course.photo.url}}" alt="Card image cap">
+          <div class="card-body">
+            <p class="card-text">{{course.title}}</p>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="col-md-3 mx-5">
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">{{course.title}}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{course.subject}}</h6>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="{{course.link}}" class="card-link">Course Link</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+
+</div>
+{% endblock %}
+
+
+{% block scripts %}
+{% endblock %}

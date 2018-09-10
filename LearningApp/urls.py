@@ -12,7 +12,11 @@ urlpatterns = [
     url(r'^login_user/$', views.login_user, name='login_user'),
     url(r'^logout_user/$', views.logout_user, name='logout_user'),
 
+    url(r'^courses/$', views.v_courses, name='v_courses'),
+    url(r'^courses/(?P<course_id>[0-9]+)/$', views.course_detail, name='course_detail'),
 
+    url(r'^discussions/$', views.v_discussion, name='v_discussion'),
+    url(r'^discussions/(?P<discussion_id>[0-9]+)/$', views.discussion_detail, name='discussion_detail'),
 
 
     # Profile

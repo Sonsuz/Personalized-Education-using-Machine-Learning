@@ -1,0 +1,12 @@
+
+
+
+
+
+
+
+{% for disc in discs %}
+  <a href="{% url 'LearningApp:discussion_detail' disc.id %}">
+    <h1>Discussion</h1>
+  </a>
+{% endfor %}

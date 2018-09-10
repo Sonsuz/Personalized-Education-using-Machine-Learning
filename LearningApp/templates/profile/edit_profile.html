@@ -4,13 +4,13 @@
 
 {% block head %}
   {% block styles %}
-    <link rel="stylesheet" href="{% static 'css/profile.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/profile1.css' %}"/>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
   {% endblock %}
 {% endblock %}
 
 {% block body %}
-<div class="row">
+<div class="row my-5">
   <div id="w">
     <div id="content" class="clearfix animated fadeIn">
       <div class="row">
@@ -30,9 +30,10 @@
             </form>
 
             <a href="{% url 'LearningApp:view_profile' %}" style="float:right;">
-              <button class="btn btn-xs btn-danger" type="button">Cancel</button>
+              <button class="btn btn-xs btn-danger mx-2" type="button">Cancel</button>
             </a>
-            <a href="{% url 'LearningApp:change_password' %}" style="float:right;">
+
+            <a href="{% url 'LearningApp:change_password' %}" style="float:left;">
               <button class="btn btn-xs btn-warning" type="button">Change Password</button>
             </a>
         </div>

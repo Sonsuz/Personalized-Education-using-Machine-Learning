@@ -3,7 +3,9 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .forms import (
     EditProfileForm, UserForm, UserProfileForm,
 )
-from .models import UserProfile
+from .models import (
+    UserProfile, Course, Discussion
+)
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
@@ -22,6 +24,35 @@ def index(request):
         return render(request, 'login.html')
     else:
         return render(request, 'index.html')
+
+def v_courses(request):
+    courses = Course.objects.all()
+    context = {
+        'courses': courses,
+    }
+    return render(request, 'course/courses.html', context)
+
+def course_detail(request, course_id):
+    coursed = Course.objects.get(pk = course_id)
+    context = {
+        'coursed': coursed,
+    }
+    return render(request, 'course/course_detail.html', context)
+
+def v_discussion(request):
+    discs = Discussion.objects.all()
+    context = {
+        'discs': discs,
+    }
+    return render(request, 'discussion/discussions.html', context)
+
+def discussion_detail(request, discussion_id):
+    disc = Discussion.objects.get(pk = discussion_id)
+    context = {
+        'disc': disc,
+    }
+    return render(request, 'discussion/discussion_detail.html', context)
+
 
 def register(request):
     form = UserForm(request.POST or None)
