@@ -11,9 +11,22 @@
 {% block body %}
 <div class="container">
 
-  <h1>{{coursed.title}}</h1>
-  <br>
-  <h2>{{coursed.id}}</h2>
+  <div class="card" style="width: 55rem; margin:auto;">
+    <img class="card-img-top" src="{{coursed.photo.url}}" alt="Course cover">
+    <div class="card-body">
+      <h5 class="card-title">{{coursed.title}}</h5>
+      <p class="card-text">{{coursed.sub_title}}</p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">{{coursed.subject}}</li>
+      <li class="list-group-item">{{coursed.instructor}}</li>
+      <li class="list-group-item">{{coursed.provider}}</li>
+    </ul>
+    <div class="card-body">
+      <a href="#" class="card-link">Course link</a>
+      <a href="#" class="card-link">Like</a>
+    </div>
+  </div>
 
 
 </div>

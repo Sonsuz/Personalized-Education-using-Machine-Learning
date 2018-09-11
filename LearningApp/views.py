@@ -27,8 +27,10 @@ def index(request):
 
 def v_courses(request):
     courses = Course.objects.all()
+    rng = range(0,30)
     context = {
         'courses': courses,
+        'rng': rng,
     }
     return render(request, 'course/courses.html', context)
 
